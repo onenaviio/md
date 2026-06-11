@@ -36,6 +36,11 @@ jobs:
       - name: Build
         run: yarn build
 
+      # SPA-фоллбэк: GitHub Pages отдаёт 404.html для неизвестных путей.
+      # Копия index.html позволяет vue-router (history mode) обработать маршрут на клиенте.
+      - name: Create 404.html for SPA routing
+        run: cp dist/index.html dist/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:

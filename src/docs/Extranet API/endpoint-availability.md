@@ -1,7 +1,5 @@
 # Эндпоинт площадки: информация о занятости (`/availability`) — тарифные площадки
 
-← [Индекс задач](tasks.md) · [Контракт тарифа](tasks/00-contract-rate.md) · [Эндпоинт `/rates`](endpoint-rates.md) · [Эндпоинт `/bookings`](endpoint-bookings.md) · [Архитектура](architecture.md)
-
 > **Реализуется на стороне Площадки.** Вариант эндпоинта `/availability` для **тарифных
 > площадок** (`Extranet::Client#rates_enabled = true`). Отличие от базового — в сообщениях
 > `prices_and_restrictions` передаётся измерение `rate_id` (цены и ограничения экспортируются

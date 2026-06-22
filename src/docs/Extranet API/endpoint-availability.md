@@ -35,6 +35,8 @@ URL: `POST /availability`
 | ∟ `min_stay` | | integer | Минимальный срок бронирования |
 | ∟ `max_stay` | | integer | Максимальный срок бронирования |
 | ∟ `closed` | | boolean | Тариф закрыт на продажу на данный период (`true` — продажа недоступна) |
+| ∟ `closed_to_arrival` | | boolean | Период закрыт для заселения (`true` — заезд в указанные даты недоступен) |
+| ∟ `closed_to_departure` | | boolean | Период закрыт для выселения (`true` — выезд в указанные даты недоступен) |
 | ∟ `agency_id` | | integer | Идентификатор агентства. Необязательный параметр. Отправляется, если площадке это необходимо |
 
 > **Экспорт по тарифам.** Для тарифной площадки на один и тот же период и объект приходит
@@ -57,8 +59,8 @@ curl 'http://<your_host>/availability?auth_token=CQqK8A4WGSsIWXeivG459pe&sign=03
       { "record_id": 1, "accommodation_id": "A1", "date_from": "2026-06-10", "date_to": "2026-06-15", "count": 1 }
     ],
     "prices_and_restrictions": [
-      { "record_id": 1, "accommodation_id": "A1", "rate_id": "RATE-001", "date_from": "2026-06-10", "date_to": "2026-06-15", "price": 1000, "guest_count": 2, "extra_fee": 0, "min_stay": 1, "max_stay": 364, "closed": false },
-      { "record_id": 2, "accommodation_id": "A1", "rate_id": "RATE-002", "date_from": "2026-06-10", "date_to": "2026-06-15", "price": 1300, "guest_count": 2, "extra_fee": 0, "min_stay": 2, "max_stay": 30, "closed": false }
+      { "record_id": 1, "accommodation_id": "A1", "rate_id": "RATE-001", "date_from": "2026-06-10", "date_to": "2026-06-15", "price": 1000, "guest_count": 2, "extra_fee": 0, "min_stay": 1, "max_stay": 364, "closed": false, "closed_to_arrival": false, "closed_to_departure": false },
+      { "record_id": 2, "accommodation_id": "A1", "rate_id": "RATE-002", "date_from": "2026-06-10", "date_to": "2026-06-15", "price": 1300, "guest_count": 2, "extra_fee": 0, "min_stay": 2, "max_stay": 30, "closed": false, "closed_to_arrival": false, "closed_to_departure": false }
     ]
   }'
 ```
